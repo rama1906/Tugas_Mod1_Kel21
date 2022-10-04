@@ -29,3 +29,19 @@ Tanggal Lahir\t\t: ${mhs.tanggal_lahir}
     }
     console.log(res);
 }
+
+const checkOnClick = () => {
+    const getInput = document.getElementById('inputText');
+    if(!mhs_data) {
+        getData(data_url, (err, data) => {
+            if(err) {
+                console.log("Get data error");
+                return;
+            }
+            mhs_data = eval(data);
+            finddata(getInput.value);
+        });
+    } else {
+        finddata(getInput.value);
+    }
+  }
