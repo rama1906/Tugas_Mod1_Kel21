@@ -1,3 +1,19 @@
+var data_url = "https://gist.githubusercontent.com/d4em0n/aa26675e79cacd3dfcfab1552e3ae37e/raw/997b218a855f76aad5e319aaee65f636d235b1e9/data_aegis.txt"
+var getData = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'text';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status, xhr.response);
+      }
+    };
+    xhr.send();
+};
+
 var mhs_data;
 var hasil = document.getElementById("res");
 var hasil_full = document.getElementById("res_full");
